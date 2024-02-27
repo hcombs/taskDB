@@ -1,0 +1,11 @@
+{
+  "name": "taskdb",
+  "version": "1.0.0",
+  "description": "database operations for the task site",
+  "main": "index.js",
+  "scripts": {
+    "test": "server"
+  },
+  "author": "Howard Combs",
+  "license": "ISC"
+}
