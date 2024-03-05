@@ -4,8 +4,12 @@
   "description": "database operations for the task site",
   "main": "index.js",
   "scripts": {
-    "test": "server"
+    "server": "node index.js"
   },
   "author": "Howard Combs",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "mysql": "^2.18.1"
+  }
 }
