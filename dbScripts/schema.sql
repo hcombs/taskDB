@@ -30,9 +30,37 @@ DELIMITER ;
 
 DELIMITER //
 
-CREATE PROCEDURE IF NOT EXISTS updateDayTask (IN mn INT, IN dy INT, IN yr INT)
+CREATE PROCEDURE IF NOT EXISTS updateDayTask (IN id INT, IN descr TEXT, IN dn boolean, IN yr INT, IN mn INT, IN dy INT)
 BEGIN
-        SELECT * FROM dailyTask WHERE year = yr AND month = mn AND day=dy;
+        UPDATE dailyTask
+        SET 
+                description = descr,
+                done = dn,
+                year = yr,
+                month = mn,
+                day = dy
+        WHERE
+                dailyTaskID = id;
+
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE IF NOT EXISTS insertDayTask (IN descr TEXT, IN dn boolean, IN yr INT, IN mn INT, IN dy INT)
+BEGIN
+        INSERT INTO dailyTask (description, done, year, month, day)
+        VALUES (descr, dn, yr, mn, dy);
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE IF NOT EXISTS deleteDayTask (IN id INT)
+BEGIN
+        DELETE FROM dailyTask where dailyTaskID = id;
 END //
 
 DELIMITER ;
