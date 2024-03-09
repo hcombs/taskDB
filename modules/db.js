@@ -25,12 +25,17 @@ const startUp = async (password) => {
     exec(`mysql -u root -p${password} < ${script}`);
 };
 
-const executeProcedure = (key, connection, params) => {
-    connection.query(procedures[key],params,(err,res)=>{
-        if(err)
-            console.log(err);
-        console.log(res);
+const executeProcedure = async (key, connection, params) => {
+    return new Promise((resolve,reject)=>{
+        connection.query(procedures[key],params,(err,res)=>{
+            if(err){
+                reject(err);
+            } else {
+                resolve(res);
+            }
+             
+        })
     });
-}
+};
 
 module.exports ={connection, startUp, executeProcedure};
