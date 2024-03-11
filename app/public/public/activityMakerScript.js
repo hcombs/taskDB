@@ -59,7 +59,6 @@ const compose = (a,b) =>{
 
 const composeAll =(...fns) => fns.reduce(compose);
 
-
 const moveToDone = (e) => {
     const done = e.target.innerHTML;
     global.todo = global.todo.filter(e=> e !== done);
@@ -67,9 +66,7 @@ const moveToDone = (e) => {
     displayList();
 };
 
-
-
 const getTasksForDay = (data) => getTasks(data).then((response)=>{
     global = response;
     displayList();
-})
+});
