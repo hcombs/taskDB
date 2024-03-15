@@ -3,12 +3,13 @@
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
-        <div class="headerGrid">
-            <div><</div>
+        <div id="calendarContainer">
+            <div class="headerGrid">
+            <div id="backMonth"><</div>
             <div id="month">January</div>
-            <div>></div>
-        </div>
-        <div class="dayGrid">
+            <div id="forwardMonth">></div>
+            </div>
+            <div class="dayGrid">
             <div>S</div>
             <div>M</div>
             <div>T</div>
@@ -16,51 +17,54 @@
             <div>T</div>
             <div>F</div>
             <div>S</div>
+            </div>
+            <div id="monthContainer" class="monthGrid">
+            <div class="column">1</div>
+            <div class="column">2</div>
+            <div class="column">3</div>
+            <div class="column">4</div>
+            <div class="column">5</div>
+            <div class="column">6</div>
+            <div class="column">7</div>
+            <div class="column">8</div>
+            <div class="column">9</div>
+            <div class="column">1</div>
+            <div class="column">2</div>
+            <div class="column">3</div>
+            <div class="column">4</div>
+            <div class="column">5</div>
+            <div class="column">6</div>
+            <div class="column">7</div>
+            <div class="column">8</div>
+            <div class="column">9</div>
+            <div class="column">1</div>
+            <div class="column">2</div>
+            <div class="column">3</div>
+            <div class="column">4</div>
+            <div class="column">5</div>
+            <div class="column">6</div>
+            <div class="column">7</div>
+            <div class="column">8</div>
+            <div class="column">9</div>
+            <div class="column">1</div>
+            <div class="column">2</div>
+            <div class="column">3</div>
+            <div class="column">4</div>
+            <div class="column">5</div>
+            <div class="column">6</div>
+            <div class="column">7</div>
+            <div class="column">8</div>
+            <div class="column">9</div>
+            <div class="column">1</div>
+            <div class="column">2</div>
+            <div class="column">3</div>
+            <div class="column">4</div>
+            <div class="column">5</div>
+            <div class="column">6</div>
+            </div>
         </div>
-        <div id="monthContainer" class="monthGrid">
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="column">3</div>
-            <div class="column">4</div>
-            <div class="column">5</div>
-            <div class="column">6</div>
-            <div class="column">7</div>
-            <div class="column">8</div>
-            <div class="column">9</div>
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="column">3</div>
-            <div class="column">4</div>
-            <div class="column">5</div>
-            <div class="column">6</div>
-            <div class="column">7</div>
-            <div class="column">8</div>
-            <div class="column">9</div>
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="column">3</div>
-            <div class="column">4</div>
-            <div class="column">5</div>
-            <div class="column">6</div>
-            <div class="column">7</div>
-            <div class="column">8</div>
-            <div class="column">9</div>
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="column">3</div>
-            <div class="column">4</div>
-            <div class="column">5</div>
-            <div class="column">6</div>
-            <div class="column">7</div>
-            <div class="column">8</div>
-            <div class="column">9</div>
-            <div class="column">1</div>
-            <div class="column">2</div>
-            <div class="column">3</div>
-            <div class="column">4</div>
-            <div class="column">5</div>
-            <div class="column">6</div>
-        </div>
+
+
         <div id="dayContainer" class="hide">
             <input type="text" id="task" placeholder="item to do"/>
             <input type="button" value="add task" id="add" />
@@ -74,6 +78,7 @@
         <script type="text/javascript" src="activityMakerScript.js"> </script>
         <script type="text/javascript" src="requests.js"></script>
         <script type="text/javascript" src="calendarControls.js"></script>
+        <script type="text/javascript" src="events.js"></script>
 
 
     </body>

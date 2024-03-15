@@ -34,7 +34,8 @@ const clear = ()=>{
 
 const createDiv = (text) =>{
     const div = document.createElement('div');
-    div.innerHTML = text;
+    div.setAttribute('id',text.dailyTaskID);
+    div.innerHTML = text.description;
     return div;
 };
 
