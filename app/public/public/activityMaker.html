@@ -66,13 +66,21 @@
 
 
         <div id="dayContainer" class="hide">
-            <input type="text" id="task" placeholder="item to do"/>
-            <input type="button" value="add task" id="add" />
-            <h1>To do</h1>
 
-            <div id="todo"></div>
-            <h1>Done</h1>
-            <div id="done"></div>
+            <div class="dayHeader">
+                <div>Todo</div><div>Done</div><div id="backToCalendar">&#128197;</div>
+            </div>
+
+            <div id="todoContainer">
+                <input type="text" id="task" placeholder="item to do"/>
+                <input type="button" value="add task" id="add" />
+                <div id="todo" class="threecol">
+                    <input type="text" placeholder="test" /> <input type="button" value="trash" /> <input type="button" value="check" />
+                </div>
+            </div>
+            <div id="doneContainer" class="hide">
+                <div id="done" class="twocol"></div>
+            </div>
         </div>
 
         <script type="text/javascript" src="activityMakerScript.js"> </script>

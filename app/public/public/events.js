@@ -4,11 +4,18 @@ document.querySelector('#monthContainer').addEventListener('click',(e)=>{
     if(e.target.innerHTML !== ""){
         (async()=>{gotoDay(`${currentIndex+1}/${e.target.innerHTML}/${currentYear}`) })();
     }
-})
+});
+document.querySelector('#backToCalendar').addEventListener('click',()=>backToMonth());
 
 window.onload = () =>{
     setMonthDisplay();
 };
+
+const backToMonth = ()=>{
+    document.querySelector('#dayContainer').className = 'hide';
+    document.querySelector('#calendarContainer').className = '';
+}
+
 
 const setMonthDisplay = () => {
     var day = 1;

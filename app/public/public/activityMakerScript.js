@@ -34,7 +34,6 @@ const clear = ()=>{
 
 const createDiv = (text) =>{
     const div = document.createElement('div');
-    div.setAttribute('id',text.dailyTaskID);
     div.innerHTML = text.description;
     return div;
 };
@@ -71,3 +70,18 @@ const getTasksForDay = (data) => getTasks(data).then((response)=>{
     global = response;
     displayList();
 });
+
+
+const removeTask = async (e)=>{
+    await postRequest({
+        key:'deleteDayTask',
+        params:[e.target.id]
+    })
+};
+
+const updateTask = async (e) => {
+    await postRequest({
+        key:'updateDayTask',
+        params:global.filter(e=>e.dailyTaskID == e.target.id)[0]
+    });
+};
