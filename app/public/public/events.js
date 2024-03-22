@@ -1,43 +1,24 @@
+var selectedDay, selectedMonth;
+
 document.querySelector('#backMonth').addEventListener('click',()=>monthChange(-1));
 document.querySelector('#forwardMonth').addEventListener('click',()=>monthChange(1));
 document.querySelector('#monthContainer').addEventListener('click',(e)=>{
     if(e.target.innerHTML !== ""){
-        (async()=>{gotoDay(`${currentIndex+1}/${e.target.innerHTML}/${currentYear}`) })();
+        selectedMonth = currentIndex+1;
+        selectedDay = e.target.innerHTML;
+        (async()=>{gotoDay(`${selectedMonth}/${selectedDay}/${currentYear}`) })();
     }
 });
 document.querySelector('#backToCalendar').addEventListener('click',()=>backToMonth());
 
+document.querySelector('#task').addEventListener('keypress',(e)=>{
+    e.keycode == 13 ? (async()=>await createTask(e.target.value))():null;
+});
+
+document.querySelector('#add').addEventListener('click',()=>{
+    (async()=>await createTask(document.querySelector('#task').value))();
+});
+
 window.onload = () =>{
     setMonthDisplay();
-};
-
-const backToMonth = ()=>{
-    document.querySelector('#dayContainer').className = 'hide';
-    document.querySelector('#calendarContainer').className = '';
-}
-
-
-const setMonthDisplay = () => {
-    var day = 1;
-    document.querySelector('#month').innerHTML = `${months[currentIndex].month} ${currentYear}`;
-    Array.from(document.querySelector('#monthContainer').children).map((e,i)=>{
-        var isDay = i >= months[currentIndex].startIndex && day <= months[currentIndex].days;
-        e.innerHTML = isDay ? day : "";
-        day = isDay ? day + 1 : day;
-        e.className = day == currentDay ? 'currentDay' : '';
-    }); 
-};
-
-const monthChange = composeAll(setMonthDisplay,switchMonth);
-
-const gotoDay = async (date)=>{
-    await getTasks(date).then(formatResult);
-};
-
-const formatResult = (result) =>{
-    global.todo = result[0].filter(e=>e.done == 0);
-    global.done = result[0].filter(e=>e.done != 0);
-    displayList();
-    document.querySelector('#calendarContainer').className = "hide";
-    document.querySelector('#dayContainer').className = "";
 };

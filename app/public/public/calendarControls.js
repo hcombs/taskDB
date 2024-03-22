@@ -103,7 +103,7 @@ const setYear = (year) => {
 
 const setDay = () => {
     currentDay = new Date().getDate();
-}
+};
 
 const setLeapYearDay = () => {
     const isLeapYear = (months[1].year % 4 == 0 && months[1].year % 100 !== 0) || months[1].year % 400 == 0;
@@ -129,3 +129,25 @@ const initializeMonths = composeAll(setLeapYearDay,setStartDay,setYear,getCurren
 const switchYear = composeAll(setLeapYearDay,setStartDay,setYear);
 
 const switchMonth = composeAll(checkMonth,checkYear);
+
+const backToMonth = ()=>{
+    document.querySelector('#dayContainer').className = 'hide';
+    document.querySelector('#calendarContainer').className = '';
+};
+
+const setMonthDisplay = () => {
+    var day = 1;
+    document.querySelector('#month').innerHTML = `${months[currentIndex].month} ${currentYear}`;
+    Array.from(document.querySelector('#monthContainer').children).map((e,i)=>{
+        var isDay = i >= months[currentIndex].startIndex && day <= months[currentIndex].days;
+        e.innerHTML = isDay ? day : "";
+        day = isDay ? day + 1 : day;
+        e.className = day == currentDay ? 'currentDay' : '';
+    }); 
+};
+
+const monthChange = composeAll(setMonthDisplay,switchMonth);
+
+const gotoDay = async (date)=>{
+    await getTasks(date).then(formatTask);
+};

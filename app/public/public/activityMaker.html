@@ -1,6 +1,7 @@
 <!DOCTYPE html>
     <head>
         <link rel="stylesheet" href="stylesheet.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div id="calendarContainer">
@@ -68,14 +69,14 @@
         <div id="dayContainer" class="hide">
 
             <div class="dayHeader">
-                <div>Todo</div><div>Done</div><div id="backToCalendar">&#128197;</div>
+                <div>TODO</div><div>DONE</div><div id="backToCalendar">&#128197;</div>
             </div>
 
             <div id="todoContainer">
                 <input type="text" id="task" placeholder="item to do"/>
                 <input type="button" value="add task" id="add" />
                 <div id="todo" class="threecol">
-                    <input type="text" placeholder="test" /> <input type="button" value="trash" /> <input type="button" value="check" />
+
                 </div>
             </div>
             <div id="doneContainer" class="hide">
@@ -86,6 +87,7 @@
         <script type="text/javascript" src="activityMakerScript.js"> </script>
         <script type="text/javascript" src="requests.js"></script>
         <script type="text/javascript" src="calendarControls.js"></script>
+        <script type="text/javascript" src="taskControls.js"></script>
         <script type="text/javascript" src="events.js"></script>
 
 
