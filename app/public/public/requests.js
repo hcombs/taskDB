@@ -3,7 +3,7 @@ const getTasks = async (date) => {
     return response.json();
 }
 
-const postTask = async (data) => {
+const postRequest = async (data) => {
     const response = await fetch(window.location.href, {
         method:'POST',
         headers:{"Content-Type":"application/JSON"},
@@ -39,5 +39,7 @@ const formatTasks = (result) =>{
     global.done = result[0].filter(e=>e.done != 0);
     document.querySelector('#calendarContainer').className = "hide";
     document.querySelector('#dayContainer').className = "";
+    fillTodo(global.todo);
+    fillDone(global.done);
 };
 

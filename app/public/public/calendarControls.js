@@ -149,5 +149,5 @@ const setMonthDisplay = () => {
 const monthChange = composeAll(setMonthDisplay,switchMonth);
 
 const gotoDay = async (date)=>{
-    await getTasks(date).then(formatTask);
+    await getTasks(date).then(formatTasks);
 };
