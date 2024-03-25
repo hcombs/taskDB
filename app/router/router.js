@@ -33,7 +33,7 @@ const formatParams = (req) => {
 };
 
 const dbOperation = async (req,res) => {
-    await db.executeProcedure(req.body.key, pool, req.body.params).then((result)=>{
+    await db.executeProcedure(req.body.key, pool, req.body.params).catch((e)=>res.send({error:e.toString()})).then((result)=>{
         res.send(result);
     });
 };
