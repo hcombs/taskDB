@@ -3,8 +3,8 @@ const router = express.Router();
 const db = require('../modules/db');
 const path = require('path');
 
-db.startUp('P@ssword12');
-const pool = db.connection('P@ssword12');
+db.startUp();
+const pool = db.connection();
 
 router.use(express.json());
 

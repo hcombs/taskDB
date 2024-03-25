@@ -10,19 +10,20 @@ const procedures ={
     getMonthTask:'call getMonthTask(?,?)'  
 }
 
-const connection = (password) => {
+const connection = () => {
     return mysql.createConnection({
-        host:'localhost',
-        user:'root',
-        password:password,
+        HOST: process.env.DB_HOST,
+        USER: process.env.DB_USER,
+        PASSWORD: process.env.DB_PASSWORD,
+        port: process.env.DB_PORT,
         database:'tasks'
     });
 };
 
 
-const startUp = async (password) => {
+const startUp = async () => {
     const script = path.join(__dirname,'../dbScripts/schema.sql');
-    exec(`mysql -u root -p${password} < ${script}`);
+    exec(`mysql -u root -p${process.env.DB_PASSWORD} < ${script}`);
 };
 
 const executeProcedure = async (key, connection, params) => {
