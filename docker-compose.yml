@@ -7,6 +7,7 @@ services:
     env_file: ./.env
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
     ports:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
@@ -24,6 +25,7 @@ services:
       - DB_USER=$MYSQLDB_USER
       - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - DB_PORT=$MYSQLDB_DOCKER_PORT
+      - DB_NAME=$MYSQLDB_DATABASE
     stdin_open: true
     tty: true
 
