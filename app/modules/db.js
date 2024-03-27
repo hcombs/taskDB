@@ -15,15 +15,15 @@ const connection = () => {
         HOST: process.env.DB_HOST,
         USER: process.env.DB_USER,
         PASSWORD: process.env.DB_PASSWORD,
-        port: process.env.DB_PORT,
-        database:'tasks'
+        DB:process.env.DB_NAME,
+        port: process.env.DB_PORT
     });
 };
 
 
 const startUp = async () => {
     const script = path.join(__dirname,'../dbScripts/schema.sql');
-    exec(`mysql -u root -p${process.env.DB_PASSWORD} < ${script}`);
+    exec(`mysql -u root -p${process.env.DB_PASSWORD} -h ${process.env.DB_HOST}:${process.env.DB_PORT}< ${script}`);
 };
 
 const executeProcedure = async (key, connection, params) => {
