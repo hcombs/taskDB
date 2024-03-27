@@ -11,11 +11,12 @@ const procedures ={
 };
 
 const connection = () => {
-    return mysql.createConnection({
-        HOST: process.env.MYSQL_HOST,
-        USER: process.env.MYSQL_USER,
-        PASSWORD: process.env.MYSQL_PASSWORD,
-        DB:process.env.MYSQL_DATABASE
+    return mysql.createPool({
+        connectionLimit: 10,
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database:process.env.MYSQL_DATABASE
     });
 };
 
