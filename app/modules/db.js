@@ -32,4 +32,4 @@ const executeProcedure = async (key, connection, params) => {
     });
 };
 
-module.exports ={connection, startUp, executeProcedure};
+module.exports ={connection, executeProcedure};
