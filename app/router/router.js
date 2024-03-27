@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../modules/db');
 const path = require('path');
 
-db.startUp();
 const pool = db.connection();
 
 router.use(express.json());
