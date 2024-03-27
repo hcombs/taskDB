@@ -8,14 +8,14 @@ const procedures ={
     updateDayTask:'call updateDayTask(?,?,?,?,?,?)',
     getDayTask:'call getDayTask(?,?,?)',
     getMonthTask:'call getMonthTask(?,?)'  
-}
+};
 
 const connection = () => {
     return mysql.createConnection({
-        HOST: process.env.DB_HOST,
-        USER: process.env.DB_USER,
-        PASSWORD: process.env.DB_PASSWORD,
-        DB:process.env.DB_NAME,
+        HOST: process.env.MYSQL_HOST,
+        USER: process.env.MYSQL_USER,
+        PASSWORD: process.env.MYSQL_PASSWORD,
+        DB:process.env.MYSQL_DATABASE
     });
 };
 

@@ -4,16 +4,16 @@ services:
     build: ./app/dbScripts
     env_file: ./.env
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_ROOT_PASSWORD: P@ssword12
+      MYSQL_DATABASE: tasks
     restart: always
   web:
     build: ./app
     environment:
-      DB_NAME: $MYSQL_DATABASE
-      DB_USER: $MYSQLDB_USER
-      DB_PASSWORD: $MYSQL_PASSWORD
-      DB_HOST: $MYSQL_HOST
+      MYSQL_DATABASE: tasks
+      MYSQL_USER: root
+      MYSQL_PASSWORD: P@ssword12
+      MYSQL_HOST: db
     ports:
       - "4000:4000"
     depends_on:
