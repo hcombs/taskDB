@@ -64,3 +64,7 @@ BEGIN
 END //
 
 DELIMITER ;
+
+ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'P@ssword12';
+
+flush privileges;
