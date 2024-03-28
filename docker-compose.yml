@@ -7,6 +7,8 @@ services:
       MYSQL_ROOT_PASSWORD: P@ssword12
       MYSQL_DATABASE: tasks
     restart: always
+    volumes:
+      - my-datavolume:/var/lib/mysql
   web:
     build: ./app
     environment:
@@ -19,3 +21,5 @@ services:
     depends_on:
       - db
     restart: on-failure
+  volumes:
+    my-datavolume:
